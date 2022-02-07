@@ -5,7 +5,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 // Opening ports for testing
-// app.use(cors())
+app.use(cors())
 
 var corsOptions = {
   origin: process.env.CLIENT_URL,
@@ -17,14 +17,14 @@ var corsOptions = {
 // ERROR: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
 // enable pre-flight request for DELETE request
-app.options('/verify-token', cors(corsOptions))
+app.options('/verify-token', cors())
 
 // This route is just open for testing, it can be removed if desired
 app.get('/', cors(), (req, res) => {
   res.send('Server is up!')
 })
 
-app.post('/verify-token', cors(corsOptions), (req, res) => {
+app.post('/verify-token', cors(), (req, res) => {
   const CLIENT_ID = process.env.CLIENT_ID
 
   const { OAuth2Client } = require('google-auth-library')

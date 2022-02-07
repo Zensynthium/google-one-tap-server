@@ -10,8 +10,8 @@
   npm run dev
   ```
   ### Google One-Tap Signin Client
-  Here's a sample repo with the server setup to listen on the route /verify-token (route can also be set to anything)
-  https://github.com/Zensynthium/vue-google-onetap-signin
+  Here's a sample repo of a front end client utilizing Vue to send authentication requests to this server.
+  https://github.com/Zensynthium/google-onetap-signin-client-vue
 
   ### Note
-  You can run into CORS (Cross-Origin Resource Sharing) related issues while testing locally, so you may need to upload the client & server to test or troubleshoot. 
+  You can run into CORS (Cross-Origin Resource Sharing) related issues while testing locally, so you may need to upload the client & server to test or troubleshoot. (Server can be hosted for free for testing on heroku)

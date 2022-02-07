@@ -11,7 +11,8 @@ var corsOptions = {
   origin: process.env.CLIENT_URL,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   methods: "POST",
-  preflightContinue: true
+  preflightContinue: true,
+  credentials: true,
 }
 
 // ERROR: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.

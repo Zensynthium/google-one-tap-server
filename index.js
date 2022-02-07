@@ -13,6 +13,8 @@ var corsOptions = {
   preflightContinue: true
 }
 
+app.options('/verify-token', cors())
+
 // This route is just open for testing, it can be removed if desired
 app.get('/', cors(), (req, res) => {
   res.send('Server is up!')

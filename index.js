@@ -9,7 +9,8 @@ const port = process.env.PORT || 3000
 
 var corsOptions = {
   origin: process.env.CLIENT_URL,
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  preflightContinue: true
 }
 
 // This route is just open for testing, it can be removed if desired

@@ -1,0 +1,25 @@
+{
+  "name": "google-one-tap-server",
+  "version": "1.0.0",
+  "description": "A server to authenticate google one-tap sign ins",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "google",
+    "one-tap",
+    "nodejs",
+    "server",
+    "authentication"
+  ],
+  "author": "Zensynthium",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "google-auth-library": "^7.11.0"
+  }
+}

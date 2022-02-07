@@ -4,14 +4,20 @@ const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 3000
 
-// opens to everyone, this will only accept requests from specific websites in production
-app.use(cors())
+// Opening ports for testing
+// app.use(cors())
 
-app.get('/', (req, res) => {
+var corsOptions = {
+  origin: process.env.CLIENT_URL,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+// This route is just open for testing, it can be removed if desired
+app.get('/', cors(), (req, res) => {
   res.send('Server is up!')
 })
 
-app.post('/verify-token', (req, res) => {
+app.post('/verify-token', cors(corsOptions), (req, res) => {
   const CLIENT_ID = process.env.CLIENT_ID
 
   const { OAuth2Client } = require('google-auth-library')

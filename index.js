@@ -11,14 +11,13 @@ var corsOptions = {
   origin: process.env.CLIENT_URL,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   methods: "POST",
-  // preflightContinue: true,
   credentials: true,
 }
 
 // ERROR: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
 // enable pre-flight request for DELETE request
-app.options('/verify-token', cors())
+app.options('/verify-token', cors(corsOptions))
 
 // This route is just open for testing, it can be removed if desired
 app.get('/', cors(), (req, res) => {

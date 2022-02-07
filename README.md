@@ -11,7 +11,7 @@
   ```
   ### Google One-Tap Signin Client
   Here's a sample repo with the server setup to listen on the route /verify-token (route can also be set to anything)
-  https://example.com
+  https://github.com/Zensynthium/vue-google-onetap-signin
 
   ### Note
   You can run into CORS (Cross-Origin Resource Sharing) related issues while testing locally, so you may need to upload the client & server to test or troubleshoot. 

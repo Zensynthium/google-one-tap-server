@@ -49,8 +49,15 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   		//[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
   	})
 
+    console.log(ticket)
+
   	const payload = ticket.getPayload()
+
+    console.log(payload)
+
   	const userid = payload['sub']
+
+    console.log('userid: ' + userid)
   	// If request specified a G Suite domain:
   	// const domain = payload['hd']
 
@@ -60,7 +67,6 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   }
 
   verify().catch(console.error)
-  res.send('We got through cors!')
 })
 
 app.listen(port, () => {

@@ -27,7 +27,11 @@ app.options('/verify-token', cors(corsOptions))
 
 // This route is just for testing, remove or comment out in production
 app.get('/', cors(), (req, res) => {
-  res.send(`Server is up! Client Url: ${CLIENT_URL} Client ID: ${CLIENT_ID}`)
+  res.json({
+    message: 'Server is up!', 
+    clientUrl: CLIENT_URL,
+    clientId: CLIENT_ID
+  })
 })
 
 app.post('/verify-token', cors(corsOptions), (req, res) => {

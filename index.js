@@ -4,8 +4,10 @@ const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 3000
 
+const CLIENT_ID = process.env.CLIENT_ID
+const CLIENT_URL = process.env.CLIENT_URL
 var corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: CLIENT_URL,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   methods: "POST",
   credentials: true,
@@ -15,9 +17,9 @@ var corsOptions = {
 app.options('/verify-token', cors(corsOptions))
 
 // This route is just for testing, remove or comment out in production
-// app.get('/', cors(), (req, res) => {
-//   res.send(`Server is up! \nClient Url: ${process.env.CLIENT_URL} \nClient ID: ${proccess.env.CLIENT_ID}`)
-// })
+app.get('/', cors(), (req, res) => {
+  res.send(`Server is up! \nClient Url: ${CLIENT_URL} \nClient ID: ${CLIENT_ID}`)
+})
 
 app.post('/verify-token', cors(corsOptions), (req, res) => {
   const CLIENT_ID = process.env.CLIENT_ID

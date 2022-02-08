@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000
 
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_URL = process.env.CLIENT_URL
+
 var corsOptions = {
   origin: CLIENT_URL,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -39,6 +40,10 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   	const userid = payload['sub']
   	// If request specified a G Suite domain:
   	// const domain = payload['hd']
+
+    // TODO: Remove these test responses
+    // res.json(ticket)
+    // res.json(payload)
   }
 
   verify().catch(console.error)

@@ -37,9 +37,6 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   const client = new OAuth2Client(CLIENT_ID)
 
   async function verify() {
-    // const token = await client.getIdTokenClient(CLIENT_ID);
-    // console.log(token)
-
     const token = req.body.credential
 
   	const ticket = await client.verifyIdToken({
@@ -57,7 +54,7 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
 
     res.json({
       email: payload.email,
-      email_verified: payload.email,
+      email_verified: payload.email_verified,
       picture: payload.picture,
       name: payload.name,
     })

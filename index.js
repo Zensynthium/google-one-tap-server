@@ -8,7 +8,8 @@ const port = process.env.PORT || 3000
 app.use(cors())
 
 var corsOptions = {
-  origin: process.env.CLIENT_URL,
+  // origin: process.env.CLIENT_URL,
+  origin: '*',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   methods: "POST",
   credentials: true,

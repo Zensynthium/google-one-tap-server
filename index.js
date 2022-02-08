@@ -25,15 +25,20 @@ app.options('/verify-token', cors(corsOptions))
 
 // * Routes *
 
-// This route is just for testing, remove or comment out in production
+// This route is just for testing, comment out or remove in production if desired
 app.get('/', cors(), (req, res) => {
-  res.json({
-    message: 'Server is up!', 
-    clientUrl: CLIENT_URL,
-    clientId: CLIENT_ID
-  })
+  if (process.env.NODE_ENV === 'production') {
+    res.send('Server is up!')
+  } else {
+    res.json({
+      message: 'Server is up!', 
+      clientUrl: CLIENT_URL,
+      clientId: CLIENT_ID
+    })
+  }
 })
 
+// Main Route, route name can be changed as desired
 app.post('/verify-token', cors(corsOptions), (req, res) => {
   const CLIENT_ID = process.env.CLIENT_ID
 

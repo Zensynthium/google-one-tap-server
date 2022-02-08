@@ -28,12 +28,10 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   const { OAuth2Client } = require('google-auth-library')
   const client = new OAuth2Client(CLIENT_ID)
 
-  console.log(req)
-
   async function verify() {
     const token = await auth.getIdTokenClient(CLIENT_ID);
     console.log(token)
-    
+
   	const ticket = await client.verifyIdToken({
   		idToken: token,
   		audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
@@ -51,7 +49,7 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
     // res.json(payload)
   }
 
-  // verify().catch(console.error)
+  verify().catch(console.error)
 
   res.send('We got through cors!')
 })

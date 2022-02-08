@@ -29,8 +29,10 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   const client = new OAuth2Client(CLIENT_ID)
 
   async function verify() {
-    const token = await auth.getIdTokenClient(CLIENT_ID);
-    console.log(token)
+    // const token = await client.getIdTokenClient(CLIENT_ID);
+    // console.log(token)
+
+    const token = req.body.credentials
 
   	const ticket = await client.verifyIdToken({
   		idToken: token,
@@ -49,12 +51,13 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
     // res.json(payload)
   }
 
-  verify().catch(console.error)
+  // verify().catch(console.error)
 
+  
   res.send('We got through cors!')
+  res.json(req.body)
 })
 
 app.listen(port, () => {
   console.log(`Google One-Tap Signin Server is listening on port ${port}`)
 })
-

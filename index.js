@@ -1,11 +1,14 @@
 const express = require('express')
-require('dotenv').config()
-var cors = require('cors')
 const app = express()
-const port = process.env.PORT || 3000
+app.use(bodyParser.json());
 
+require('dotenv').config()
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_URL = process.env.CLIENT_URL
+
+const port = process.env.PORT || 3000
+
+const cors = require('cors')
 
 var corsOptions = {
   origin: CLIENT_URL,
@@ -16,6 +19,8 @@ var corsOptions = {
 
 // enable pre-flight request for verify-token request
 app.options('/verify-token', cors(corsOptions))
+
+// * Routes *
 
 // This route is just for testing, remove or comment out in production
 app.get('/', cors(), (req, res) => {
@@ -53,9 +58,8 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
 
   // verify().catch(console.error)
 
-  
+  console.log(req.body)
   res.send('We got through cors!')
-  res.json(req.body)
 })
 
 app.listen(port, () => {

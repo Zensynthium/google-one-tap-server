@@ -28,6 +28,8 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   const { OAuth2Client } = require('google-auth-library')
   const client = new OAuth2Client(CLIENT_ID)
 
+  console.log(req)
+
   async function verify() {
   	const ticket = await client.verifyIdToken({
   		idToken: token,

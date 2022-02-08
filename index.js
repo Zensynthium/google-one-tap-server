@@ -31,6 +31,9 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   console.log(req)
 
   async function verify() {
+    const token = await auth.getIdTokenClient(CLIENT_ID);
+    console.log(token)
+    
   	const ticket = await client.verifyIdToken({
   		idToken: token,
   		audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend

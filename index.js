@@ -4,9 +4,6 @@ const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 3000
 
-// Opening ports for testing
-// app.use(cors())
-
 var corsOptions = {
   origin: process.env.CLIENT_URL,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -14,15 +11,13 @@ var corsOptions = {
   credentials: true,
 }
 
-// ERROR: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-
 // enable pre-flight request for verify-token request
 app.options('/verify-token', cors(corsOptions))
 
-// This route is just open for testing, it can be removed if desired
-app.get('/', cors(), (req, res) => {
-  res.send(`Server is up! \nClient Url: ${process.env.CLIENT_URL} \nClient ID: ${proccess.env.CLIENT_ID}`)
-})
+// This route is just for testing, remove or comment out in production
+// app.get('/', cors(), (req, res) => {
+//   res.send(`Server is up! \nClient Url: ${process.env.CLIENT_URL} \nClient ID: ${proccess.env.CLIENT_ID}`)
+// })
 
 app.post('/verify-token', cors(corsOptions), (req, res) => {
   const CLIENT_ID = process.env.CLIENT_ID
@@ -45,7 +40,6 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
   }
 
   verify().catch(console.error)
-
 })
 
 app.listen(port, () => {

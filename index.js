@@ -40,7 +40,7 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
     // const token = await client.getIdTokenClient(CLIENT_ID);
     // console.log(token)
 
-    const token = req.body.credentials
+    const token = req.body.credential
 
   	const ticket = await client.verifyIdToken({
   		idToken: token,
@@ -59,9 +59,7 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
     // res.json(payload)
   }
 
-  // verify().catch(console.error)
-
-  console.log(req.body)
+  verify().catch(console.error)
   res.send('We got through cors!')
 })
 

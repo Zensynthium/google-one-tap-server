@@ -48,6 +48,6 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Google One-Tap Signin Server is listening on port ${port}`)
 })
 

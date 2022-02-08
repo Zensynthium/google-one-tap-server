@@ -46,7 +46,9 @@ app.post('/verify-token', cors(corsOptions), (req, res) => {
     // res.json(payload)
   }
 
-  verify().catch(console.error)
+  // verify().catch(console.error)
+
+  res.send('We got through cors!')
 })
 
 app.listen(port, () => {

@@ -1,5 +1,5 @@
 {
-  "name": "google-one-tap-server",
+  "name": "google-onetap-server",
   "version": "1.0.0",
   "description": "A server to authenticate google one-tap sign ins",
   "main": "index.js",
